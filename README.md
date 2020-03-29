@@ -90,6 +90,8 @@ ones do it faster.
 I don't think I can go wrong with either comet or W&B.  Ultimately, I'm going to start with Comet, and see where that takes me.
 If I'm being honest, the corporate names listed on their [home page](https://www.comet.ml/site/) is influencing my decision a bit.
 
-All of these are pretty feature-rich, so the decision is largely coming down to UI/UX.  That's not something I could easily capture
+All of these are pretty feature-rich (here's a [comparison chart](https://neptune.ai/blog/best-ml-experiment-tracking-tools)
+ created by Neptune, maybe biased but also thorough), so the decision is
+largely coming down to UI/UX.  That's not something I could easily capture
 in writing.  If you're interested, I encourage you to check them out yourself.  This repo integrates pretty easily into
 all of them so it should be easy to log your first experiment and play around.
