@@ -29,7 +29,7 @@ tensorboard --logdir tensorboard
 
 ## CometML
 ```sh
-python train.py --save_dir='comet' --name='comet-0' --logger_type comet --api_key ce5Sj9A2Mko6heJH5FOjBQxet
+python train.py --save_dir='comet' --name='comet-0' --logger_type comet --api_key <api-key>
 
 ...
 COMET INFO: Experiment is live on comet.ml https://www.comet.ml/shoarora/pl-loggers/a51199ef5824451897f3ab0c1900ec4b
@@ -66,5 +66,9 @@ python train.py --save_dir='wandb' --name wandb-0 --logger_type wandb
 ```sh
 python train.py --logger_type trains --name='trains-0'
 ```
+
+## Multiple
+Lightning let's you pass a list of loggers if for whatever reason you want to support multiple of these at once.
+
 
 ## My conclusion

@@ -26,7 +26,8 @@ NEPTUNE = 'neptune'
 TESTTUBE = 'test_tube'
 TRAINS = 'trains'
 WANDB = 'wandb'
-logger_types = [TENSORBOARD, COMET, MLFLOW, NEPTUNE, TESTTUBE, WANDB, TRAINS]
+MULTIPLE = 'multiple'
+logger_types = [TENSORBOARD, COMET, MLFLOW, NEPTUNE, TESTTUBE, WANDB, TRAINS, MULTIPLE]
 
 
 def main(hparams):
@@ -40,7 +41,6 @@ def main(hparams):
     model = SimpleMNIST(hparams)
 
     logger = create_logger(hparams)
-    print(logger.name, logger.version)
 
     # ------------------------
     # 2 INIT TRAINER
@@ -83,9 +83,20 @@ def create_logger(hparams):
     elif logger_type == TESTTUBE:
         logger = TestTubeLogger(save_dir=save_dir, version=version)
     elif logger_type == WANDB:
-        logger = WandbLogger(name=name, save_dir=save_dir, project=project_name)
+        logger = WandbLogger(name=name,
+                             save_dir=save_dir,
+                             project=project_name)
     elif logger_type == TRAINS:
-        logger = TrainsLogger(project_name=project_name, task_name=experiment_name)
+        logger = TrainsLogger(project_name=project_name,
+                              task_name=experiment_name)
+    elif logger_type == MULTIPLE:
+        logger = [
+            TensorBoardLogger(save_dir=save_dir, name=name, version=version),
+            CometLogger(project_name=project_name,
+                        api_key=api_key,
+                        save_dir=save_dir,
+                        experiment_name=experiment_name)
+        ]
     else:
         raise Exception(f'logger_type: {logger_type} is unsupported')
     return logger
