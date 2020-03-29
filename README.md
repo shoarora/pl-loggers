@@ -72,3 +72,24 @@ Lightning let's you pass a list of loggers if for whatever reason you want to su
 
 
 ## My conclusion
+This is a pretty non-exhaustive look at all the features, but it's enough for me personally to take my pick.
+
+Tensorboard is the baseline here.  It let's me plot all my runs, but requires all the data to be hosted by me.
+Not the best for granular analysis.  Test-tube builds on tensorboard with hyperparameter search features,
+but they're centered largely around SLURM, which I don't use.
+
+TRAINS and MLFlow can be self-deployed on-premise for free, which is super cool.  MLFlow also has features
+around managing environments, experiments and deploying model servers.  But I didn't find the UIs particularly pleasant to use.
+They're feature-sufficient, but not _enjoyable_.  This wouldn't be a problem if the hosted loggers weren't so nice.
+I wish I liked one of these, since that would make it really easy for me to use the same platform for work and personal use at no cost.
+
+Comet, Neptune, and W&B are the hosted platforms.  They all offer enterprise solutions that can be deployed on-premises (not for free).
+Right off the bat, Neptune had the slowest UI, pages took 1.5s to load.  This is fair since there's a lot of data in ML, but the other
+ones do it faster.
+
+I don't think I can go wrong with either comet or W&B.  Ultimately, I'm going to start with Comet, and see where that takes me.
+If I'm being honest, the corporate names listed on their [home page](https://www.comet.ml/site/) is influencing my decision a bit.
+
+All of these are pretty feature-rich, so the decision is largely coming down to UI/UX.  That's not something I could easily capture
+in writing.  If you're interested, I encourage you to check them out yourself.  This repo integrates pretty easily into
+all of them so it should be easy to log your first experiment and play around.
